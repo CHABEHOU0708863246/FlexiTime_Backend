@@ -1,0 +1,6 @@
+@FlexiTime_Backend.WebApi_HostAddress = http://localhost:5119
+
+GET {{FlexiTime_Backend.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

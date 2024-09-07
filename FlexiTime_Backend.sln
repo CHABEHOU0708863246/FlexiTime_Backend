@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexiTime_Backend.WebApi", "FlexiTime_Backend.WebApi\FlexiTime_Backend.WebApi.csproj", "{61C9E780-6F34-41EC-BB3E-CECA47F6063C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexiTime_Backend.Domain", "FlexiTime_Backend.Domain\FlexiTime_Backend.Domain.csproj", "{D21796EF-FC11-4A69-BC66-1D212A469F25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexiTime_Backend.Infra.Mongo", "FlexiTime_Backend.Infra.Mongo\FlexiTime_Backend.Infra.Mongo.csproj", "{86C5A697-CFC5-467D-9DA5-07DFAEC9C65C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexiTime_Backend.Services.Tests", "FlexiTime_Backend.Services.Tests\FlexiTime_Backend.Services.Tests.csproj", "{98CBD729-0680-40A2-A408-219E6AABD885}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexiTime_Backend.Services", "FlexiTime_Backend.Services\FlexiTime_Backend.Services.csproj", "{EE4DE82A-E4CA-4D84-A7EC-A67826683A5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexiTime_Backend.Utilities", "FlexiTime_Backend.Utilities\FlexiTime_Backend.Utilities.csproj", "{87C5EBF7-941C-492B-B205-770A4992E63B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61C9E780-6F34-41EC-BB3E-CECA47F6063C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C9E780-6F34-41EC-BB3E-CECA47F6063C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C9E780-6F34-41EC-BB3E-CECA47F6063C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C9E780-6F34-41EC-BB3E-CECA47F6063C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21796EF-FC11-4A69-BC66-1D212A469F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21796EF-FC11-4A69-BC66-1D212A469F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21796EF-FC11-4A69-BC66-1D212A469F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21796EF-FC11-4A69-BC66-1D212A469F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C5A697-CFC5-467D-9DA5-07DFAEC9C65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C5A697-CFC5-467D-9DA5-07DFAEC9C65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C5A697-CFC5-467D-9DA5-07DFAEC9C65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C5A697-CFC5-467D-9DA5-07DFAEC9C65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98CBD729-0680-40A2-A408-219E6AABD885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98CBD729-0680-40A2-A408-219E6AABD885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98CBD729-0680-40A2-A408-219E6AABD885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98CBD729-0680-40A2-A408-219E6AABD885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE4DE82A-E4CA-4D84-A7EC-A67826683A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE4DE82A-E4CA-4D84-A7EC-A67826683A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE4DE82A-E4CA-4D84-A7EC-A67826683A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE4DE82A-E4CA-4D84-A7EC-A67826683A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C5EBF7-941C-492B-B205-770A4992E63B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C5EBF7-941C-492B-B205-770A4992E63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C5EBF7-941C-492B-B205-770A4992E63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C5EBF7-941C-492B-B205-770A4992E63B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2CC7140B-452D-4CFD-8224-01E88E8F73D0}
+	EndGlobalSection
+EndGlobal
