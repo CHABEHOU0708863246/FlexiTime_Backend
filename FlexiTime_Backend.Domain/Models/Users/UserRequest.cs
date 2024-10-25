@@ -16,6 +16,9 @@ namespace FlexiTime_Backend.Domain.Models.Users
         [Required, Phone]
         public string PhoneNumber { get; set; } = string.Empty;
 
+        [Required]
+        public int WorkingHours { get; set; }
+
         public List<string> Roles { get; set; } = new List<string>();
 
         [Required]
@@ -26,5 +29,8 @@ namespace FlexiTime_Backend.Domain.Models.Users
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Le mot de passe et le mot de passe de confirmation ne correspondent pas.")]
         public string ConfirmPassword { get; set; } = string.Empty;
+
+        public bool IsPartTime { get; set; } = false;
+        public DateTime HireDate { get; set; }
     }
 }

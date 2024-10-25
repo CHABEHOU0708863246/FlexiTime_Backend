@@ -12,6 +12,9 @@ namespace FlexiTime_Backend.Infra.Mongo
         public bool IsEnabled { get; set; } = true;
         public string RefreshToken { get; set; } = string.Empty;
         public DateTime? RefreshTokenExpiryTime { get; set; }
+        public DateTime HireDate { get; set; }
+        public int WorkingHours { get; set; }
+        public bool IsPartTime { get; set; } = false;
 
     }
 }

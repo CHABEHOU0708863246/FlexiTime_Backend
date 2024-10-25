@@ -1,5 +1,4 @@
 ﻿using AspNetCore.Identity.MongoDbCore.Infrastructure;
-using FlexiTime_Backend.Domain.Models.Roles;
 using FlexiTime_Backend.Infra.Mongo;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
@@ -28,13 +27,6 @@ namespace FlexiTime_Backend.WebApi.Configurations
             {
                 var client = sp.GetRequiredService<IMongoClient>();
                 return client.GetDatabase(dbSettings.DatabaseName);
-            });
-
-            // Enregistrement des collections MongoDB
-            services.AddScoped(sp =>
-            {
-                var database = sp.GetRequiredService<IMongoDatabase>();
-                return database.GetCollection<Role>("Roles");
             });
 
             // Configuration de l'authentification (si nécessaire)

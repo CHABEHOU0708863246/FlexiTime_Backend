@@ -13,6 +13,11 @@ namespace FlexiTime_Backend.Domain.Models.Users
         public string? Email { get; set; }
         public string? PhoneNumber { get; set; }
         public bool IsEnabled { get; set; } = true;
-        public List<string> Roles { get; set; } = new List<string>(); // New property to hold role names
+        public List<string> Roles { get; set; } = new List<string>();
+        public int WorkingHours { get; set; }
+        public bool IsPartTime { get; set; } = false;
+
+        [BsonDateTimeOptions]
+        public DateTime HireDate { get; set; }
     }
 }

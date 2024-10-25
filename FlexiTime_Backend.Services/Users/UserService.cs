@@ -1,5 +1,6 @@
 ﻿using FlexiTime_Backend.Domain.Models.Users;
 using FlexiTime_Backend.Infra.Mongo;
+using FlexiTime_Backend.Services.LeavesBalances;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
@@ -10,11 +11,15 @@ namespace FlexiTime_Backend.Services.Users
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly ILogger<UserService> _logger;
-        public UserService(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, ILogger<UserService> logger)
+        private readonly ILeaveBalanceService _leaveBalanceService;
+
+        public UserService(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager,
+                           ILogger<UserService> logger, ILeaveBalanceService leaveBalanceService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _logger = logger;
+            _leaveBalanceService = leaveBalanceService;
         }
 
         #region Enregistre un nouvel utilisateur et crée des rôles si nécessaire
@@ -59,7 +64,10 @@ namespace FlexiTime_Backend.Services.Users
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
                 UserName = userRequest.Email,
                 FirstName = userRequest.FirstName,
-                LastName = userRequest.LastName
+                LastName = userRequest.LastName,
+                HireDate = userRequest.HireDate,
+                IsPartTime = userRequest.IsPartTime,
+                WorkingHours = userRequest.WorkingHours
             };
 
             if (string.IsNullOrEmpty(userRequest.Password))
@@ -69,10 +77,17 @@ namespace FlexiTime_Backend.Services.Users
 
             try
             {
+                // Création de l'utilisateur
                 var createUserResult = await _userManager.CreateAsync(newUser, userRequest.Password);
-                if (!createUserResult.Succeeded)
+                if (createUserResult.Succeeded)
                 {
-                    return new UserResponse { Succeeded = false, Errors = createUserResult.Errors.Select(e => e.Description), User = null };
+                    // Ajout des rôles
+                    await _userManager.AddToRolesAsync(newUser, roles);
+
+                    // Initialiser le solde de congés ici
+                    await _leaveBalanceService.CreateInitialLeaveBalanceAsync(newUser.Id.ToString(), userRequest.HireDate, userRequest.IsPartTime);
+
+                    return new UserResponse { Succeeded = true, User = newUser };
                 }
 
                 var addToRolesResult = await _userManager.AddToRolesAsync(newUser, roles);
@@ -87,6 +102,9 @@ namespace FlexiTime_Backend.Services.Users
                     }
                     return new UserResponse { Succeeded = false, Errors = addToRolesResult.Errors.Select(e => e.Description), User = null };
                 }
+
+                // Appeler la méthode pour mettre à jour le solde de congés
+                await _leaveBalanceService.UpdateLeaveBalanceAutomatically(newUser.Id.ToString());
             }
             catch (Exception ex)
             {
